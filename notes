@@ -1,0 +1,41 @@
+SETTING UP A NEW PROJECT IN DJANGO
+
+$python3 -m venv .venv
+$source .venv/bin/activate
+$pipenv install django
+    - this creates pipfile and pipfile.lock
+$django-admin startproject core .
+    - here core is a name of the directory we are creating
+    - this also creates the core directory (which contains urls.py and settings.py) and and manage.py file
+$code .
+    - opens files in text editor
+$python3 manage.py startapp classes
+    - this creates another directory(aka app or project) in our directory that contains other important file templates like models.py, views.py etc
+
+after this we made a User model in models.py and then went into settings.py and added AUTH_USER_MODEL
+
+now we are setting up a database 
+    - SQL lite is an option for building a database
+we added our classes app (directory) to list of INSTALLED_APPS in settings.py then
+$python3 manage.py makemigrations
+    - shows that we made the model User
+    -(python3 manage.py showmigrations will show you all of the moving parts)
+    -migrations are instructions that are to be created on how to update the database. they are not applied until we:
+$python3 manage.py migrate
+
+from here we update our models.py to include our "Flavor" model
+- which is the template for how our class Flavor items will be displayed
+then makemigrations & migrate
+
+We add our User & Flavor models to admin.py
+    - in between here is where we added the class Meta
+    - we also incorporated a string method in our model
+
+now we add a new model relationship:
+    - we made the class Season and use a foreign key to link it to our class Flavor 
+
+    from there we went into the django admin and added some seasons
+    
+    we also added a string method to make our seasons have the same name their content
+
+now we incorporate the django template language

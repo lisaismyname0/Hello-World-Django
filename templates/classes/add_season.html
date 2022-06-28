@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> add a new flavor</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit"> Save</button>
+</form>
+{% end block %}

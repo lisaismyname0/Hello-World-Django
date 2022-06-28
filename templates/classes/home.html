@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<header>Today's Flavors</header>
+<div>
+    {% for flavor in flavors%}
+    <div>{{flavor}} is called {{flavor.name}}. it tastes like {{flavor.flavor_description}}
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}
